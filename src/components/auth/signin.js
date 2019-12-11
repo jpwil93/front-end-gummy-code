@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 
-class Signin extends Component {
+import { reduxForm, Field } from "redux-form";
+
+class SignIn extends Component {
   constructor(props) {
     super(props);
 
@@ -12,4 +14,8 @@ class Signin extends Component {
   }
 }
 
-export default Signin;
+SignIn = reduxForm({
+  form: "SignIn"
+})(SignIn);
+
+export default SignIn;
