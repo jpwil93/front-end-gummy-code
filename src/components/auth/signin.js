@@ -4,12 +4,6 @@ import SignInForm from "./signinForm";
 import PageTitle from "../pageTitle";
 
 class SignIn extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {};
-  }
-
   onSubmit = fields => {
     console.log(fields);
   };

@@ -1,12 +1,6 @@
 import React, { Component } from "react";
 
 export class FormInput extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {};
-  }
-
   render() {
     const { className, title, type, placeholder, input } = this.props;
     return (
@@ -24,12 +18,6 @@ export class FormInput extends Component {
 }
 
 export class FormButton extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {};
-  }
-
   render() {
     const { className, title, type, onClick, input, short } = this.props;
     return (
