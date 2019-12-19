@@ -2,22 +2,19 @@ import React, { Component } from "react";
 
 import { reduxForm, Field } from "redux-form";
 
-import { FormInput, FormButton } from "../formFields";
+import { FormInput, FormButton, LongGrayButton } from "../formFields";
 
 import history from "../../history";
 
 class AccountInformationForm extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {};
-  }
-
   render() {
     const { className, handleSubmit } = this.props;
 
     return (
-      <form onSubmit={handleSubmit} className={`${className} sign-in-form`}>
+      <form
+        onSubmit={handleSubmit}
+        className={`${className} account-information-form`}
+      >
         <Field
           className="account-information-form__name"
           type="name"
@@ -34,6 +31,7 @@ class AccountInformationForm extends Component {
           name="email"
           component={FormInput}
         />
+
         <Field
           className="account-information-form__street-address"
           type="address"
@@ -50,6 +48,7 @@ class AccountInformationForm extends Component {
           name="city"
           component={FormInput}
         />
+
         <Field
           className="account-information-form__state"
           type="state"
@@ -66,23 +65,16 @@ class AccountInformationForm extends Component {
           name="zipcode"
           component={FormInput}
         />
-        {/* <Field
-          className="account-information-form__password"
-          type="password"
-          title="Password"
-          placeholder="Password"
-          name="password"
-          component={FormInput}
-        /> */}
 
-        {/* <Field
-          onClick={() => history.push("/account")}
-          className="account-information-form__login"
-          type="submit"
-          title="Login"
-          name="login"
-          component={FormButton}
-        /> */}
+        <Field
+          className="account-information-form__change-password"
+          onClick={() => console.log("tryna show passwords")}
+          type="button"
+          labelTitle="Password"
+          title="Change Password"
+          name="change-password"
+          component={LongGrayButton}
+        />
       </form>
     );
   }
