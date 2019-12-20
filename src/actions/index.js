@@ -14,5 +14,6 @@ export {
   changeNavbarActive,
   fetchUserPurchases,
   setPurchaseDetail,
-  fetchShopCategories
+  fetchShopCategories,
+  fetchShopProducts
 };
