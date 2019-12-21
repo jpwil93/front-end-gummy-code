@@ -2,15 +2,8 @@ import React, { Component } from "react";
 
 import { connect } from "react-redux";
 import * as actions from "../../actions";
-import { doesNotReject } from "assert";
 
 class Shop extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {};
-  }
-
   componentDidMount() {
     const headerLinks = [
       {
@@ -21,37 +14,47 @@ class Shop extends Component {
     ];
     this.props.setHeaderLinks(headerLinks);
     this.props.fetchShopCategories();
-    this.props.setNavbarLinks(this.props.categories, _id =>
-      this.props.filterProductsWithCategoryId(_id)
-    );
 
+    // filter products with links
     this.props.fetchShopProducts();
-
-    // set header links
   }
 
   shouldComponentUpdate(nextProps) {
     if (this.props != nextProps) {
-      this.props.setNavbarLinks(nextProps.categories);
+      this.props.setNavbarLinks(nextProps.categories, _id =>
+        this.props.filterProductsWithCategoryId(_id)
+      );
     }
     return true;
   }
 
   render() {
-    this.props.setNavbarLinks(this.props.categories);
     return (
       <div className="shop">
-        {/* shop search bar component */}
-        {/* product component */}
-        {/* cart button */}
+        {/* shop search bar */}
+        <div className="shop__products">
+          {this.props.filteredProducts.map(product => {
+            return (
+              <div key={product._id} className="shop-product">
+                <div className="shop-product__title">{product.title}</div>
+                <div className="shop-product__description">
+                  {product.description}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+        {/* shop cart button */}
       </div>
     );
   }
 }
+
 function mapStateToProps(state) {
-  const { categories } = state.shop;
+  const { categories, filteredProducts } = state.shop;
   return {
-    categories
+    categories,
+    filteredProducts
   };
 }
 
