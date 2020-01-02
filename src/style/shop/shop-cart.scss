@@ -8,6 +8,7 @@
     grid-row: tog-s/tog-e;
     grid-column: s/e;
     justify-self: end;
+
     display: grid;
     justify-items: center;
     align-items: center;
@@ -41,7 +42,7 @@
 
 .cart-content {
   display: grid;
-  grid-template-rows: 25px [title-s] 80px [title-e products-s] 1fr [products-e footer-s] 113px [footer-e];
+  grid-template-rows: 25px [title-s] 40px [title-e products-s] 1fr [products-e footer-s] 113px [footer-e];
   grid-template-columns: [footer-s] 30px [s] 1fr [e] 30px [footer-e];
 
   &__title {
@@ -51,13 +52,15 @@
     font-size: 30px;
     font-family: "Titillium Web";
     color: #e6e6e6;
-    margin-bottom: 50px;
+    // margin-bottom: 50px;
   }
   &__products {
+    padding-top: 50px;
     grid-column: s/e;
-
     grid-row: products-s/products-e;
     display: grid;
+    overflow-y: scroll;
+    grid-row-gap: 45px;
   }
   &__footer {
     grid-column: footer-s/footer-e;
@@ -69,6 +72,7 @@
 .cart-footer {
   height: 113px;
   background-color: #1a1a1a;
+
   display: grid;
   grid-template-rows: [s] 1fr [e];
   grid-template-columns: 50px [checkout-s] 1fr [checkout-e sub-s] 1fr [sub-e] 27px [price-s] 46px [price-e] 31px;
@@ -80,12 +84,14 @@
 
   &__checkout {
     grid-column: checkout-s/checkout-e;
+
     display: grid;
     justify-items: center;
     align-items: center;
-    height: 380px;
+
+    height: 38px;
     width: 183px;
-    border-radius: 16px;
+    border-radius: 20px;
     background-color: #00cb79;
 
     color: white;
@@ -102,21 +108,20 @@
       transform: scale(0.95);
     }
 
-    &__focus {
+    &:focus {
       outline: none;
     }
   }
 
   &__subtotal {
-    grid-column: sub-s/sub-e;
     justify-self: end;
+    grid-column: sub-s/sub-e;
     font-size: 18px;
   }
 
   &__price {
-    grid-column: price-s/price-e;
     justify-self: start;
-
+    grid-column: price-s/price-e;
     font-size: 18px;
     color: white;
     font-weight: 600;
