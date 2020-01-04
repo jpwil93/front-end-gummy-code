@@ -2,32 +2,37 @@ import {
   setHeaderLinks,
   setNavbarLinks,
   changeNavbarActive
-} from "./headernavbar";
+} from './headernavbar';
 
 import {
   fetchUserPurchases,
   setPurchaseDetail,
   fetchCartProducts,
-  addCartProduct
-} from "./user";
+  addCartProduct,
+  signIn
+} from './user';
 
 import {
   fetchShopCategories,
   fetchShopProducts,
   filterProductsWithCategoryId,
   filterProductsWithQuery
-} from "./shop";
+} from './shop';
 
 export {
   setHeaderLinks,
   setNavbarLinks,
   changeNavbarActive,
+
   fetchUserPurchases,
   setPurchaseDetail,
   fetchCartProducts,
   addCartProduct,
+  signIn,
+
   fetchShopCategories,
   fetchShopProducts,
   filterProductsWithCategoryId,
+
   filterProductsWithQuery
 };
